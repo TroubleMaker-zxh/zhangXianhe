@@ -15,27 +15,21 @@ export const asyncRouterMap = [
       {
         path: '/stuff',
         name: 'stuff',
-        redirect: '/stuff/workplace',
+        redirect: '/stuff/demo1',
         component: RouteView,
-        meta: { title: 'demo1', keepAlive: true, icon: bxAnaalyse, permission: [ 'dashboard' ] },
+        meta: { title: 'demo1', keepAlive: true, icon: bxAnaalyse, yarnpermission: [ 'dashboard' ] },
         children: [
           {
-            path: '/stuff/analysis',
-            name: 'Analysis',
-            component: () => import('@/views/dashboard/Analysis'),
+            path: '/stuff/demo1',
+            name: 'demo1',
+            component: () => import('@/views/stuff/demo1'),
             meta: { title: 'child1', keepAlive: false, permission: [ 'dashboard' ] }
           },
-          // 外部链接
           {
-            path: 'https://www.baidu.com/',
-            name: 'Monitor',
-            meta: { title: 'child2', target: '_blank' }
-          },
-          {
-            path: '/stuff/workplace',
-            name: 'Workplace',
-            component: () => import('@/views/dashboard/Workplace'),
-            meta: { title: 'child3', keepAlive: true, permission: [ 'dashboard' ] }
+            path: '/stuff/demo2',
+            name: 'demo2',
+            component: () => import('@/views/stuff/demo2'),
+            meta: { title: 'child2', keepAlive: true, permission: [ 'dashboard' ] }
           }
         ]
       },
@@ -348,6 +342,60 @@ export const asyncRouterMap = [
                 meta: { title: '权限列表', keepAlive: true }
               }
             ]
+          }
+        ]
+      },
+      {
+        path: '/cailiao',
+        name: 'cailiao',
+        redirect: '/cailiao/demo1',
+        component: RouteView,
+        meta: { title: '石材原料', keepAlive: true, icon: bxAnaalyse, yarnpermission: [ 'dashboard' ] },
+        children: [
+          {
+            path: '/cailiao/tianran',
+            name: 'tianran',
+            component: () => import('@/views/cailiao/tianran'),
+            meta: { title: '天然石', keepAlive: false, permission: [ 'dashboard' ] }
+          },
+          {
+            path: '/cailiao/renzao',
+            name: 'renzao',
+            component: () => import('@/views/cailiao/renzao'),
+            meta: { title: '人造石', keepAlive: true, permission: [ 'dashboard' ] }
+          }
+        ]
+      },
+      {
+        path: '/zhuangxiu',
+        name: 'zhuangxiu',
+        redirect: '/zhuangxiu/beijingqiang',
+        component: RouteView,
+        meta: { title: '石材造型', keepAlive: true, icon: bxAnaalyse, yarnpermission: [ 'dashboard' ] },
+        children: [
+          {
+            path: '/zhuangxiu/beijingqiang',
+            name: 'beijingqiang',
+            component: () => import('@/views/zhuangxiu/beijingqiang'),
+            meta: { title: '背景墙', keepAlive: true, permission: [ 'dashboard' ] }
+          },
+          {
+            path: '/zhuangxiu/qiangmian',
+            name: 'qiangmian',
+            component: () => import('@/views/zhuangxiu/qiangmian'),
+            meta: { title: '墙面', keepAlive: true, permission: [ 'dashboard' ] }
+          },
+          {
+            path: '/zhuangxiu/dimian',
+            name: 'dimian',
+            component: () => import('@/views/zhuangxiu/dimian'),
+            meta: { title: '地面', keepAlive: false, permission: [ 'dashboard' ] }
+          },
+          {
+            path: '/zhuangxiu/shixian',
+            name: 'shixian',
+            component: () => import('@/views/zhuangxiu/shixian'),
+            meta: { title: '实线', keepAlive: true, permission: [ 'dashboard' ] }
           }
         ]
       }
